@@ -528,4 +528,5 @@ volumes:
   langfuse_clickhouse_data_dev:
   langfuse_clickhouse_logs_dev:
   langfuse_minio_data_dev:
+  opensearch_data_dev:
   searxng_config_dev:
