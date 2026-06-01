@@ -1781,7 +1781,7 @@ export default {
     goToAgentSettings: 'Go to agent settings'
   },
   createChat: {
-    title: 'Hi, I am WeKnora — your knowledge, within reach',
+    title: 'Hi, I am zhuowo AI — your knowledge, within reach',
     newSessionTitle: 'New Session',
     messages: {
       selectKnowledgeBase: 'Please select a knowledge base first',
@@ -3236,11 +3236,12 @@ export default {
     },
   },
   platform: {
-    subtitle: 'Enterprise-level Intelligent Document Retrieval Framework',
-    description: 'Making complex document understanding and precise retrieval simple',
-    rag: 'RAG Enhanced Generation',
-    hybridSearch: 'Hybrid Search',
-    localDeploy: 'Local Deployment',
+    brandName: 'Zhuowo Network Technology (Shanghai) Co., Ltd.',
+    subtitle: 'Enterprise · AI Knowledge System',
+    description: 'Integrating research data with intelligent analysis to empower informed investment decisions',
+    rag: 'Industry Deep Research',
+    hybridSearch: 'Smart Investment Analysis',
+    localDeploy: 'Multi-source Data Retrieval',
     multimodalParsing: 'Multimodal Document Parsing',
     hybridSearchEngine: 'Hybrid Search Engine',
     ragQandA: 'RAG Intelligent Q&A',

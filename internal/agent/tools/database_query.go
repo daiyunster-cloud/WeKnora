@@ -60,8 +60,17 @@ var databaseQueryTool = BaseTool{
 - chunk_type (VARCHAR): Type (text/image/table)
 - created_at, updated_at, deleted_at (TIMESTAMP)
 
-## Usage Examples
+### knowledge_tags (tag categories for knowledge bases)
+- id (VARCHAR): Tag ID
+- seq_id (BIGINT): Auto-increment sequence ID for external API
+- tenant_id (INTEGER): Owner tenant ID
+- knowledge_base_id (VARCHAR): Parent knowledge base ID
+- name (VARCHAR): Tag name (unique within a knowledge base)
+- color (VARCHAR): Display color
+- sort_order (INTEGER): Display order
+- created_at, updated_at (TIMESTAMP)
 
+## Usage Examples
 Query knowledge base information:
 {
   "sql": "SELECT id, name, description FROM knowledge_bases ORDER BY created_at DESC LIMIT 10"
@@ -266,7 +275,7 @@ func (t *DatabaseQueryTool) validateAndSecureSQL(sqlQuery string, tenantID uint6
 	securedSQL, validationResult, err := utils.ValidateAndSecureSQL(
 		sqlQuery,
 		utils.WithSecurityDefaults(tenantID),
-		utils.WithSoftDeleteFilter("knowledge_bases", "knowledges", "chunks"),
+		utils.WithSoftDeleteFilter("knowledge_bases", "knowledges", "chunks", "knowledge_tags"),
 		utils.WithHiddenKBFilter(),
 		utils.WithInjectionRiskCheck(),
 		utils.WithSearchScopeFilter(kbIDs, knowledgeIDs),

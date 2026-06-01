@@ -47,10 +47,10 @@ const emojiChar = computed(() => {
 
 // 预定义渐变色（与项目绿色主色协调，偏空间/协作感）
 const gradients = [
-  { from: '#07c05f', to: '#059669' },  // 主绿
+  { from: '#4a8df5', to: '#2563eb' },  // 主蓝
   { from: '#11998e', to: '#38ef7d' },  // 深绿渐变
   { from: '#43e97b', to: '#38f9d7' },  // 绿青
-  { from: '#02aab0', to: '#00cdac' },  // 青绿
+  { from: '#1a4db5', to: '#123a8a' },  // 深蓝
   { from: '#36d1dc', to: '#5b86e5' }, // 青蓝
   { from: '#4facfe', to: '#00f2fe' },  // 蓝青
   { from: '#667eea', to: '#764ba2' },  // 紫蓝

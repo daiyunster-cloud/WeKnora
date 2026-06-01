@@ -577,6 +577,7 @@ func WithTenantIsolation(tenantID uint64, tables ...string) SQLValidationOption 
 				"knowledge_bases": true,
 				"knowledges":      true,
 				"chunks":          true,
+				"knowledge_tags":  true,
 			}
 		} else {
 			for _, table := range tables {
@@ -597,6 +598,7 @@ func WithSoftDeleteFilter(tables ...string) SQLValidationOption {
 				"knowledge_bases": true,
 				"knowledges":      true,
 				"chunks":          true,
+				"knowledge_tags":  true,
 			}
 		} else {
 			for _, table := range tables {
@@ -653,6 +655,7 @@ func WithSecurityDefaults(tenantID uint64) SQLValidationOption {
 			"knowledge_bases",
 			"knowledges",
 			"chunks",
+			"knowledge_tags",
 		)(v)
 	}
 }

@@ -1,82 +1,97 @@
 <template>
   <div class="login-layout">
     <div class="animated-bg">
+      <!-- Gradient Orbs -->
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+
+      <!-- Network Nodes -->
       <div class="knowledge-node node-1">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          <polyline points="2,18 8,10 14,14 22,4"/>
+          <polyline points="16,4 22,4 22,10"/>
         </svg>
       </div>
       <div class="knowledge-node node-2">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+          <path d="M4 2v6M2 6h4v8H2zM12 4v4m-2 2h4v6h-4zM20 3v8m-2 7h4V7h-4z"/>
         </svg>
       </div>
       <div class="knowledge-node node-3">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
+          <path d="M3 14h4v7H3zM10 8h4v13H10zM17 4h4v17H17z"/>
         </svg>
       </div>
       <div class="knowledge-node node-4">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <ellipse cx="12" cy="5" rx="9" ry="3"/>
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 3a9 9 0 0 1 9 9H12V3z"/>
+          <path d="M12 12l5.2-5.2"/>
         </svg>
       </div>
       <div class="knowledge-node node-5">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="m21 21-4.35-4.35"/>
+          <circle cx="10" cy="10" r="7"/>
+          <path d="M15 15l5 5"/>
+          <polyline points="7,10 9,8 12,11 14,7"/>
         </svg>
       </div>
       <div class="knowledge-node node-6">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9,12 11,14 15,10"/>
         </svg>
       </div>
       <div class="knowledge-node node-7">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
+          <path d="M3 3h18v18H3z"/>
+          <path d="M3 9h18M9 3v18"/>
         </svg>
       </div>
       <div class="knowledge-node node-8">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-          <circle cx="9" cy="7" r="4"/>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          <polygon points="12,2 20,8 17,18 7,18 4,8"/>
+          <polygon points="12,9 15,12 13,16 11,16 9,12"/>
         </svg>
       </div>
       <div class="knowledge-node node-9">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+          <path d="M3 11h18v9H3z"/>
+          <path d="M8 11v4M16 11v4"/>
         </svg>
       </div>
       <div class="knowledge-node node-10">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 1v6m0 6v6M5.64 5.64l4.24 4.24m4.24 4.24l4.24 4.24M1 12h6m6 0h6M5.64 18.36l4.24-4.24m4.24-4.24l4.24-4.24"/>
+          <circle cx="12" cy="12" r="9"/>
+          <ellipse cx="12" cy="12" rx="4" ry="9"/>
+          <path d="M3 12h18"/>
         </svg>
       </div>
       <div class="knowledge-node node-11">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 11l3 3L22 4"/>
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          <path d="M12 20V4"/>
+          <path d="M8 8l4-4 4 4"/>
+          <path d="M8 16l4 4 4-4"/>
         </svg>
       </div>
       <div class="knowledge-node node-12">
         <svg class="node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          <path d="M12 2l9 5-9 15L3 7z"/>
+          <path d="M3 7h18"/>
+          <path d="M12 2v20"/>
         </svg>
       </div>
 
       <svg class="knowledge-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(74, 141, 245, 0.5)" />
+            <stop offset="50%" stop-color="rgba(37, 99, 235, 0.2)" />
+            <stop offset="100%" stop-color="rgba(99, 102, 241, 0.4)" />
+          </linearGradient>
+        </defs>
         <line class="connection-line line-1" x1="20" y1="15" x2="35" y2="25" />
         <line class="connection-line line-2" x1="35" y1="25" x2="55" y2="20" />
         <line class="connection-line line-3" x1="55" y1="20" x2="85" y2="12" />
@@ -93,28 +108,28 @@
     </div>
 
     <!-- Logo - Top Left -->
-    <a href="https://github.com/Tencent/WeKnora" target="_blank" class="header-logo" :title="$t('common.github')">
-      <img src="@/assets/img/weknora.png" alt="WeKnora" class="logo-image" />
-    </a>
+    <div class="header-logo">
+      <img src="../../assets/img/weknora.png" alt="WeKnora" class="logo-image" />
+    </div>
 
     <!-- Header Links - Top Right -->
     <div class="header-links">
-      <a href="https://weknora.weixin.qq.com" target="_blank" class="header-link" :title="$t('common.website')">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-        </svg>
-        <span class="link-text">{{ $t('common.website') }}</span>
-      </a>
-      
-      <a href="https://github.com/Tencent/WeKnora" target="_blank" class="header-link" :title="$t('common.info')">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
-        </svg>
-        <span class="link-text">GitHub</span>
-      </a>
-      
+<!--      <a href="https://weknora.weixin.qq.com" target="_blank" class="header-link" :title="$t('common.website')">-->
+<!--        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">-->
+<!--          <circle cx="12" cy="12" r="10"/>-->
+<!--          <line x1="2" y1="12" x2="22" y2="12"/>-->
+<!--          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>-->
+<!--        </svg>-->
+<!--        <span class="link-text">{{ $t('common.website') }}</span>-->
+<!--      </a>-->
+<!--      -->
+<!--      <a href="https://github.com/Tencent/WeKnora" target="_blank" class="header-link" :title="$t('common.info')">-->
+<!--        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">-->
+<!--          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>-->
+<!--        </svg>-->
+<!--        <span class="link-text">GitHub</span>-->
+<!--      </a>-->
+
       <div class="language-switch">
         <button @click="toggleLanguageMenu" class="header-link" :title="currentLangOption?.label">
           <span class="lang-flag-icon">{{ currentLangOption?.flag }}</span>
@@ -123,11 +138,11 @@
             <polyline points="6 9 12 15 18 9"/>
           </svg>
         </button>
-        
+
         <!-- Language Dropdown -->
         <div v-if="showLanguageMenu" class="language-dropdown">
-          <div 
-            v-for="lang in languageOptions" 
+          <div
+            v-for="lang in languageOptions"
             :key="lang.value"
             @click="selectLanguage(lang.value)"
             class="language-option"
@@ -144,6 +159,7 @@
     <!-- Left Showcase Section -->
     <div class="showcase-section">
       <div class="showcase-content">
+        <p class="showcase-brand">{{ $t('platform.brandName') }}</p>
         <p class="showcase-subtitle">{{ $t('platform.subtitle') }}</p>
         <p class="showcase-description">{{ $t('platform.description') }}</p>
 
@@ -151,30 +167,6 @@
           <span class="tag">{{ $t('platform.rag') }}</span>
           <span class="tag">{{ $t('platform.hybridSearch') }}</span>
           <span class="tag">{{ $t('platform.localDeploy') }}</span>
-        </div>
-
-        <!-- Swiper Carousel -->
-        <div class="carousel-container">
-          <swiper
-            :modules="modules"
-            :slides-per-view="1"
-            :loop="true"
-            :autoplay="{
-              delay: 4000,
-              disableOnInteraction: false,
-            }"
-            :effect="'fade'"
-            :fade-effect="{ crossFade: true }"
-            :pagination="{ clickable: true, dynamicBullets: false }"
-            :speed="800"
-            class="screenshot-swiper"
-          >
-            <swiper-slide v-for="(slide, index) in slides" :key="index">
-              <div class="slide-content">
-                <img :src="slide.image" :alt="slide.title" class="slide-image" />
-              </div>
-            </swiper-slide>
-          </swiper>
         </div>
       </div>
     </div>
@@ -201,7 +193,7 @@
             <t-input
               v-model="formData.email"
               :placeholder="$t('auth.emailPlaceholder')"
-              type="text"
+              type="email"
               autocomplete="email"
               size="large"
               :disabled="loading"
@@ -215,7 +207,7 @@
               type="password"
               size="large"
               :disabled="loading"
-              @enter="handleLogin"
+              @keydown.enter="handleLogin"
             />
           </t-form-item>
 
@@ -257,18 +249,18 @@
 
             <!-- Features list -->
             <div class="login-features">
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{ $t('platform.multimodalParsing') }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{ $t('platform.hybridSearchEngine') }}</span>
-              </div>
-              <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span class="feature-text">{{ $t('platform.ragQandA') }}</span>
-              </div>
+<!--              <div class="feature-item">-->
+<!--                <span class="feature-icon">✓</span>-->
+<!--                <span class="feature-text">{{ $t('platform.multimodalParsing') }}</span>-->
+<!--              </div>-->
+<!--              <div class="feature-item">-->
+<!--                <span class="feature-icon">✓</span>-->
+<!--                <span class="feature-text">{{ $t('platform.hybridSearchEngine') }}</span>-->
+<!--              </div>-->
+<!--              <div class="feature-item">-->
+<!--                <span class="feature-icon">✓</span>-->
+<!--                <span class="feature-text">{{ $t('platform.ragQandA') }}</span>-->
+<!--              </div>-->
             </div>
       </div>
     </div>
@@ -322,7 +314,7 @@
             <t-input
               v-model="registerData.email"
               :placeholder="$t('auth.emailPlaceholder')"
-              type="text"
+              type="email"
               autocomplete="email"
               size="large"
               :disabled="loading"
@@ -346,7 +338,7 @@
               type="password"
               size="large"
               :disabled="loading"
-              @enter="handleRegister"
+              @keydown.enter="handleRegister"
             />
           </t-form-item>
 
@@ -397,11 +389,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { MessagePlugin } from 'tdesign-vue-next'
 import { useRoleLabel } from '@/composables/useRoleLabel'
 import { notifyLoginSuccess } from '@/utils/loginNotify'
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/effect-fade'
-import 'swiper/css/pagination'
+
 import {
   login,
   register,
@@ -417,38 +405,11 @@ import {
 import { useAuthStore } from '@/stores/auth'
 import { useI18n } from 'vue-i18n'
 
-// Import screenshot images
-import screenshot1 from '@/assets/img/screenshot-1.svg'
-import screenshot2 from '@/assets/img/screenshot-2.svg'
-import screenshot4 from '@/assets/img/screenshot-4.svg'
-
 const router = useRouter()
 const route = useRoute()
 const authStore = useAuthStore()
 const { t, tm, locale } = useI18n()
 const { formatRole, roleIcon } = useRoleLabel()
-
-// Swiper modules
-const modules = [Autoplay, EffectFade, Pagination]
-
-// Carousel slides data
-const slides = [
-  {
-    image: screenshot4,
-    title: t('platform.carousel.agenticRagTitle'),
-    description: t('platform.carousel.agenticRagDesc')
-  },
-  {
-    image: screenshot2,
-    title: t('platform.carousel.hybridSearchTitle'),
-    description: t('platform.carousel.hybridSearchDesc')
-  },
-  {
-    image: screenshot1,
-    title: t('platform.carousel.smartDocRetrievalTitle'),
-    description: t('platform.carousel.smartDocRetrievalDesc')
-  }
-]
 
 // Form references
 const formRef = ref()
@@ -529,10 +490,10 @@ const registerRules = computed(() => ({
     { required: true, message: t('auth.usernameRequired'), type: 'error' },
     { min: 2, message: t('auth.usernameMinLength'), type: 'error' },
     { max: 20, message: t('auth.usernameMaxLength'), type: 'error' },
-    { 
-      pattern: /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/, 
-      message: t('auth.usernameInvalid'), 
-      type: 'error' 
+    {
+      pattern: /^[a-zA-Z0-9_\u4e00-\u9fa5]+$/,
+      message: t('auth.usernameInvalid'),
+      type: 'error'
     }
   ],
   email: [
@@ -559,7 +520,7 @@ const registerRules = computed(() => ({
 // Toggle login/register mode
 const toggleMode = () => {
   isRegisterMode.value = !isRegisterMode.value
-  
+
   Object.keys(registerData).forEach(key => {
     (registerData as any)[key] = ''
   })
@@ -694,7 +655,7 @@ const handleLogin = async () => {
     if (valid !== true) return
 
     loading.value = true
-    
+
     const response = await login({
       email: formData.email,
       password: formData.password,
@@ -842,7 +803,7 @@ onMounted(async () => {
   min-height: 100%;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(225deg, #022c22 0%, #064e3b 15%, #065f46 25%, #047857 38%, #059669 50%, #07C05F 65%, #10B981 78%, #34D399 90%, #6EE7B7 100%);
+  background: linear-gradient(225deg, #020617 0%, #0a1628 15%, #101f3a 25%, #162a4d 38%, #1a3a6b 50%, #1e4d8f 65%, #2563eb 78%, #4a8df5 90%, #89b4ff 100%);
 
   &::before {
     content: '';
@@ -866,31 +827,103 @@ onMounted(async () => {
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
-  contain: strict;
+}
+
+/* 科技感点阵网格 */
+.animated-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 50px 50px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 大尺寸渐变光晕（星云效果） */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 0;
+}
+
+.orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at 35% 35%, rgba(37, 99, 235, 0.08) 0%, transparent 65%);
+  top: -150px;
+  right: -80px;
+  animation: orbFloat 22s infinite ease-in-out;
+}
+
+.orb-2 {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle at 65% 65%, rgba(99, 102, 241, 0.06) 0%, transparent 65%);
+  bottom: -60px;
+  left: 8%;
+  animation: orbFloat 26s infinite ease-in-out reverse;
+}
+
+.orb-3 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle at 50% 50%, rgba(74, 141, 245, 0.05) 0%, transparent 65%);
+  top: 35%;
+  left: -100px;
+  animation: orbFloat 18s infinite ease-in-out;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(40px, -30px) scale(1.08); }
+  50% { transform: translate(-20px, -50px) scale(0.95); }
+  75% { transform: translate(-40px, 20px) scale(1.05); }
 }
 
 .knowledge-node {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 0 15px rgba(255, 255, 255, 0.35),
-    0 0 30px rgba(16, 185, 129, 0.2),
-    inset 0 0 8px rgba(255, 255, 255, 0.1);
+  width: 46px;
+  height: 46px;
+  z-index: 2;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(74, 141, 245, 0.08));
+  filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.25)) drop-shadow(0 0 20px rgba(37, 99, 235, 0.08));
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: nodePulse 5s infinite ease-in-out;
-  will-change: transform, opacity;
+  animation: nodeFloat 5s infinite ease-in-out;
+  will-change: transform;
+}
+
+/* Diamond shapes */
+.node-2, .node-5, .node-11 {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(37, 99, 235, 0.08));
+}
+
+/* Circle nodes (kept for visual rhythm) */
+.node-3, .node-9 {
+  clip-path: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  filter: none;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.12), inset 0 0 8px rgba(255, 255, 255, 0.05);
 }
 
 .node-icon {
-  width: 20px;
-  height: 20px;
-  color: rgba(255, 255, 255, 0.9);
+  width: 18px;
+  height: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  filter: drop-shadow(0 0 3px rgba(74, 141, 245, 0.3));
 }
 
 .node-1  { top: 15%; left: 20%;  animation-delay: 0s; }
@@ -906,9 +939,15 @@ onMounted(async () => {
 .node-11 { top: 70%; left: 40%;  animation-delay: 0.8s; }
 .node-12 { top: 65%; left: 80%;  animation-delay: 1.3s; }
 
-@keyframes nodePulse {
-  0%, 100% { transform: scale(1); opacity: 0.65; }
-  50% { transform: scale(1.08); opacity: 0.9; }
+@keyframes nodeFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.06);
+    opacity: 0.85;
+  }
 }
 
 .knowledge-lines {
@@ -917,29 +956,30 @@ onMounted(async () => {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.35;
+  z-index: 1;
+  opacity: 0.5;
 }
 
 .connection-line {
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: url(#blueGradient);
   stroke-width: 1.5;
-  stroke-dasharray: 6, 3;
+  stroke-dasharray: 4, 5;
   stroke-linecap: round;
-  animation: lineFlow 10s infinite linear;
+  animation: lineFlow 8s infinite linear;
   will-change: stroke-dashoffset;
 }
 
-.line-1  { animation-delay: 0s; }
+.line-1  { animation-delay: 0s; stroke-dasharray: 3, 6; }
 .line-2  { animation-delay: 0.5s; }
-.line-3  { animation-delay: 1s; }
+.line-3  { animation-delay: 1s; stroke-dasharray: 5, 4; }
 .line-4  { animation-delay: 0.3s; }
-.line-5  { animation-delay: 0.8s; }
+.line-5  { animation-delay: 0.8s; stroke-dasharray: 3, 6; }
 .line-6  { animation-delay: 1.3s; }
-.line-7  { animation-delay: 1.8s; }
+.line-7  { animation-delay: 1.8s; stroke-dasharray: 5, 4; }
 .line-8  { animation-delay: 2.3s; }
-.line-9  { animation-delay: 0.2s; }
+.line-9  { animation-delay: 0.2s; stroke-dasharray: 3, 6; }
 .line-10 { animation-delay: 0.7s; }
-.line-11 { animation-delay: 0.9s; }
+.line-11 { animation-delay: 0.9s; stroke-dasharray: 5, 4; }
 .line-12 { animation-delay: 1.5s; }
 
 @keyframes lineFlow {
@@ -950,135 +990,120 @@ onMounted(async () => {
 @media (prefers-reduced-motion: reduce) {
   .knowledge-node { animation: none; opacity: 0.65; }
   .connection-line { animation: none; }
+  .orb { animation: none; opacity: 0.15; }
 }
 
 /* Left Showcase Section */
 .showcase-section {
   flex: 0 0 52%;
   display: flex;
-  align-items: flex-end;
-  padding: 100px 30px 100px 50px;
+  align-items: center;
+  padding: 112px 30px 60px 90px;
   box-sizing: border-box;
   position: relative;
 }
 
 .showcase-content {
   width: 100%;
-  max-width: 600px;
+  max-width: 860px;
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  margin-bottom: 60px;
+}
+
+.showcase-brand {
+  margin: -56px 0 120px 0;
+  font-size: 59px;
+  color: rgba(255, 255, 255, 0.98);
+  font-family: var(--app-font-family);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 2px;
+  white-space: nowrap;
 }
 
 .showcase-subtitle {
   margin-top: 0;
-  font-size: 22px;
-  color: rgba(255, 255, 255, 0.95);
-  margin: 0 0 8px 0;
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 14px 0;
   font-family: var(--app-font-family);
-  line-height: 1.4;
+  line-height: 1.35;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .showcase-description {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  margin: 0 0 28px 0;
+  font-size: 32px;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 46px 0;
   font-family: var(--app-font-family);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .feature-tags {
   display: flex;
-  gap: 12px;
-  margin-bottom: 40px;
+  gap: 16px;
+  margin-bottom: 0;
   flex-wrap: wrap;
 }
 
 .tag {
   display: inline-block;
-  padding: 8px 20px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
   color: var(--td-text-color-anti);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   font-family: var(--app-font-family);
-}
-
-/* Carousel */
-.carousel-container {
-  width: 100%;
-  margin-top: 48px;
-}
-
-.screenshot-swiper {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  padding-bottom: 40px;
-
-  :deep(.swiper-wrapper) {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  :deep(.swiper-pagination) {
-    bottom: 15px !important;
-    z-index: 10;
-  }
-
-  :deep(.swiper-pagination-bullet) {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 1;
-    transition: all 0.3s ease;
-    margin: 0 6px !important;
-  }
-
-  :deep(.swiper-pagination-bullet-active) {
-    background: var(--td-bg-color-container);
-    width: 28px;
-    border-radius: 5px;
-  }
-}
-
-.slide-content {
-  width: 100%;
-  height: 100%;
-  background: var(--td-bg-color-container);
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide-image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: contain;
 }
 
 /* Right Form Section */
 .form-section {
   flex: 0 0 48%;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 40px 50px 100px 30px;
+  padding: 40px 50px 40px 30px;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
+}
+
+.form-section::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.12) 0%, rgba(74, 141, 245, 0.06) 40%, transparent 70%);
+  border-radius: 50%;
+  top: -180px;
+  right: -120px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.form-section::after {
+  content: '';
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.08) 0%, rgba(37, 99, 235, 0.04) 40%, transparent 70%);
+  border-radius: 50%;
+  bottom: -80px;
+  left: -60px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .form-panel {
   width: 100%;
   max-width: 480px;
-  margin-bottom: 60px;
+  margin-bottom: 0;
   position: relative;
   z-index: 2;
 }
@@ -1091,7 +1116,7 @@ onMounted(async () => {
   cursor: pointer;
 
   .logo-image {
-    width: 120px;
+    width: 240px;
     height: auto;
   }
 }
@@ -1197,13 +1222,19 @@ onMounted(async () => {
 }
 
 .form-card {
-  background: rgba(255, 255, 255, 0.97);
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 12px 48px rgba(0, 0, 0, 0.10),
+    0 1px 2px rgba(0, 0, 0, 0.04);
   box-sizing: border-box;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
   width: 100%;
+  transition: box-shadow 0.3s ease;
 }
 
 /* Share-link invitation banner. Sits above the register form when the
@@ -1221,6 +1252,7 @@ onMounted(async () => {
   background: var(--td-bg-color-container-hover, rgba(0, 0, 0, 0.03));
   border: 1px solid var(--td-component-stroke);
   color: var(--td-text-color-primary);
+  border-radius: 12px;
 }
 
 .invite-banner__icon {
@@ -1260,14 +1292,26 @@ onMounted(async () => {
 .form-header {
   text-align: center;
   margin-bottom: 32px;
+  position: relative;
+}
+
+.form-header::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--td-brand-color-4), var(--td-brand-color-5));
+  border-radius: 4px;
+  margin: 0 auto 20px auto;
 }
 
 .form-title {
-  font-size: 24px;
-    font-weight: 600;
+  font-size: 26px;
+    font-weight: 700;
   color: var(--td-text-color-primary);
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   font-family: var(--app-font-family);
+  letter-spacing: 0.3px;
 }
 
 .form-welcome {
@@ -1292,7 +1336,7 @@ onMounted(async () => {
     margin-bottom: 8px;
     font-family: var(--app-font-family);
     display: block;
-    text-align: left;
+    text-align: center;
   }
 
   :deep(.t-input) {
@@ -1300,16 +1344,17 @@ onMounted(async () => {
     border-radius: 8px;
     background: var(--td-bg-color-container);
     transition: all 0.2s;
-    
+
     &:focus-within {
       border-color: var(--td-brand-color);
-      box-shadow: 0 0 0 3px rgba(7, 192, 95, 0.1);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
-    
+
     &:hover {
       border-color: var(--td-brand-color);
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.06);
     }
-    
+
     .t-input__inner {
       border: none !important;
       box-shadow: none !important;
@@ -1317,14 +1362,14 @@ onMounted(async () => {
       background: transparent;
       font-size: 15px;
       font-family: var(--app-font-family);
-      
+
       &:focus {
         border: none !important;
         box-shadow: none !important;
         outline: none !important;
       }
     }
-    
+
     .t-input__wrap {
       border: none !important;
       box-shadow: none !important;
@@ -1333,24 +1378,42 @@ onMounted(async () => {
 
   :deep(.t-form-item) {
     margin-bottom: 18px;
-    
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+
     &:last-child {
       margin-bottom: 0;
     }
   }
-  
+
   :deep(.t-form-item__control) {
     width: 100%;
   }
 }
 
 .submit-button {
-  height: 46px;
-  border-radius: 8px;
+  height: 48px;
+  border-radius: 10px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: var(--app-font-family);
-  margin: 20px 0 16px 0;
+  margin: 24px 0 16px 0;
+  border: none;
+  background: linear-gradient(135deg, var(--td-brand-color-4) 0%, var(--td-brand-color-5) 100%);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+
+  &:hover:not(.t-is-loading) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(37, 99, 235, 0.4);
+  }
+
+  &:active:not(.t-is-loading) {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  }
 }
 
 .oidc-divider {
@@ -1364,7 +1427,7 @@ onMounted(async () => {
     position: relative;
     z-index: 1;
     padding: 0 12px;
-    background: rgba(255, 255, 255, 0.95);
+    background: transparent;
   }
 
   &::before {
@@ -1373,15 +1436,21 @@ onMounted(async () => {
     left: 0;
     right: 0;
     top: 50%;
-    border-top: 1px solid var(--td-component-stroke);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
 
 .oidc-button {
   height: 46px;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 500;
+  transition: all 0.25s ease;
+
+  &:hover:not(.t-is-loading) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
 }
 
 .form-footer {
@@ -1460,8 +1529,24 @@ onMounted(async () => {
     display: none;
   }
 
+  .showcase-brand {
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin: -32px 0 56px 0;
+    white-space: nowrap;
+  }
+
   .showcase-subtitle {
-    font-size: 18px;
+    font-size: 26px;
+  }
+
+  .showcase-description {
+    font-size: 16px;
+  }
+
+  .tag {
+    font-size: 14px;
+    padding: 10px 22px;
   }
 
   .header-logo {
@@ -1469,7 +1554,7 @@ onMounted(async () => {
     left: 40px;
 
     .logo-image {
-      width: 100px;
+      width: 200px;
     }
   }
 
@@ -1504,8 +1589,8 @@ onMounted(async () => {
 
   .showcase-section {
     flex: 0 0 auto;
-    min-height: 50vh;
-    padding: 40px 24px;
+    min-height: 45vh;
+    padding: 40px 24px 32px 54px;
   }
 
   .showcase-content {
@@ -1517,21 +1602,34 @@ onMounted(async () => {
     left: 30px;
 
     .logo-image {
-      width: 80px;
+      width: 160px;
     }
   }
 
+  .showcase-brand {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin: -28px 0 48px 0;
+    white-space: nowrap;
+  }
+
   .showcase-subtitle {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .showcase-description {
     font-size: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .feature-tags {
-    margin-bottom: 24px;
+    gap: 12px;
   }
 
-  .carousel-container {
-    margin-top: 24px;
+  .tag {
+    font-size: 14px;
+    padding: 10px 22px;
   }
 
   .form-section {
@@ -1569,7 +1667,7 @@ onMounted(async () => {
   }
 
   .showcase-section {
-    padding: 32px 20px;
+    padding: 32px 20px 32px 50px;
   }
 
   .header-logo {
@@ -1577,17 +1675,28 @@ onMounted(async () => {
     left: 20px;
 
     .logo-image {
-      width: 70px;
+      width: 140px;
     }
   }
 
+  .showcase-brand {
+    font-size: 22px;
+    letter-spacing: 0.5px;
+    margin: -20px 0 40px 0;
+    white-space: nowrap;
+  }
+
   .showcase-subtitle {
-    font-size: 14px;
+    font-size: 20px;
+  }
+
+  .showcase-description {
+    font-size: 15px;
   }
 
   .tag {
-    font-size: 12px;
-    padding: 6px 16px;
+    font-size: 14px;
+    padding: 10px 20px;
   }
 
   .form-section {
@@ -1631,17 +1740,27 @@ onMounted(async () => {
 <style lang="less">
 html[theme-mode="dark"] {
   .login-layout {
-    background: linear-gradient(225deg, #011a14 0%, #032e22 15%, #043a2c 25%, #05503d 38%, #046647 50%, #038a56 65%, #049b60 78%, #06a06a 90%, #07b074 100%);
+    background: linear-gradient(225deg, #020208 0%, #050d1f 15%, #0a1730 25%, #0e2240 38%, #122d52 50%, #163a66 65%, #1a4d80 78%, #2a6aa0 90%, #3d8bbd 100%);
   }
 
   .knowledge-node {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+    background: rgba(37, 99, 235, 0.15);
+    filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.3)) drop-shadow(0 0 30px rgba(37, 99, 235, 0.1));
+  }
+
+  .node-2, .node-5, .node-11 {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(37, 99, 235, 0.1));
+  }
+
+  .node-3, .node-9 {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.15);
+    filter: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.08), inset 0 0 6px rgba(255, 255, 255, 0.03);
   }
 
   .connection-line {
-    stroke: rgba(255, 255, 255, 0.25);
+    stroke: rgba(74, 141, 245, 0.3);
   }
 
   .header-logo .logo-image {
@@ -1669,23 +1788,48 @@ html[theme-mode="dark"] {
   .tag { background: rgba(255, 255, 255, 0.12); }
 
   .form-card {
-    background: rgba(36, 36, 36, 0.97) !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+    background: rgba(30, 30, 35, 0.82) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 12px 48px rgba(0, 0, 0, 0.2) !important;
   }
 
   .form-content .t-input {
-    background: var(--td-bg-color-page) !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
-    &:hover { border-color: var(--td-brand-color) !important; }
-    &:focus-within { border-color: var(--td-brand-color) !important; }
-  }
-
-  .screenshot-swiper .swiper-pagination-bullet-active {
-    background: rgba(255, 255, 255, 0.9) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    &:hover {
+      border-color: var(--td-brand-color) !important;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.15) !important;
+    }
+    &:focus-within {
+      border-color: var(--td-brand-color) !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15) !important;
+    }
   }
 
   .login-features .feature-icon {
-    background: rgba(6, 176, 77, 0.15);
+    background: rgba(37, 99, 235, 0.2);
+  }
+
+  .form-section::before {
+    background: radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.15) 0%, rgba(74, 141, 245, 0.05) 40%, transparent 70%);
+  }
+
+  .form-section::after {
+    background: radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.10) 0%, rgba(37, 99, 235, 0.04) 40%, transparent 70%);
+  }
+
+  .submit-button {
+    background: linear-gradient(135deg, var(--td-brand-color-5) 0%, var(--td-brand-color-6) 100%);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+    &:hover:not(.t-is-loading) {
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.35);
+    }
+  }
+
+  .oidc-divider::before {
+    border-top-color: rgba(255, 255, 255, 0.1);
   }
 }
 </style>
