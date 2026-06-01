@@ -1,6 +1,6 @@
-# Built-in Agent Configuration with i18n support
-# Each agent has localized name, description, avatar, and config overrides per language.
-# The "default" locale is used as fallback when the user's language is not found.
+# 内置智能体配置（含 i18n 多语言支持）
+# 每个智能体按语言分别配置了本地化的名称、描述、头像和配置覆写。
+# 当找不到用户对应的语言时，使用 "default" 区域设置作为兜底。
 
 builtin_agents:
   - id: "builtin-quick-answer"

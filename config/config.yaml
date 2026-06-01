@@ -1,113 +1,112 @@
-# Server configuration
+# 服务器配置
 server:
-  port: 8080
-  host: "0.0.0.0"
+  port: 8080                           # 服务监听端口
+  host: "0.0.0.0"                      # 监听地址，0.0.0.0 表示监听所有网络接口
 
-# Conversation service configuration
-# NOTE: Prompt content is resolved from prompt_templates/ YAML files via xxx_id fields.
-# Set the _id to the template ID you want; the system will load its content at startup.
+# 对话服务配置
+# 注意：Prompt 内容通过 xxx_id 字段从 prompt_templates/ 目录下的 YAML 文件解析。
+# 将 _id 设置为你想要的模板 ID，系统会在启动时加载其内容。
 conversation:
-  max_rounds: 5
-  keyword_threshold: 0.3
-  embedding_top_k: 30
-  vector_threshold: 0.2
-  rerank_threshold: 0.3
-  rerank_top_k: 30
-  fallback_strategy: "model"
-  fallback_response: "Sorry, I am unable to answer this question."
-  fallback_prompt_id: "default_fallback_prompt"  # from prompt_templates/fallback.yaml (mode: "model")
-  enable_rewrite: true
-  enable_query_expansion: true
-  enable_rerank: true
-  rewrite_prompt_id: "default_rewrite"  # from prompt_templates/rewrite.yaml (content + user fields)
-  generate_summary_prompt_id: "default_summary"  # from prompt_templates/generate_summary.yaml
-  generate_session_title_prompt_id: "default_session_title"  # from prompt_templates/generate_session_title.yaml
+  max_rounds: 10                        # 多轮对话最大轮数，超出后自动截断历史
+  keyword_threshold: 0.3               # 关键词匹配阈值，低于此分值的关键词被丢弃
+  embedding_top_k: 30                  # 向量召回阶段返回的最大候选文档数
+  vector_threshold: 0.2                # 向量相似度阈值，低于此分的文档被过滤
+  rerank_threshold: 0.3                # 重排序后相关度阈值，低于此分的文档被过滤
+  rerank_top_k: 30                     # 送入重排序模型的候选文档数上限
+  fallback_strategy: "model"           # 兜底策略，model 表示由模型自行判断无法回答时调用兜底
+  fallback_response: "抱歉，我无法回答这个问题。"  # 当无法回答时返回的兜底文本
+  fallback_prompt_id: "default_fallback_prompt"  # 来自 prompt_templates/fallback.yaml（模式: "model"）
+  enable_rewrite: true                 # 是否启用用户问题重写，将口语化问题转为更精确的检索查询
+  enable_query_expansion: true         # 是否启用查询扩展，生成多个相关查询以提高召回率
+  enable_rerank: true                  # 是否启用重排序，对召回文档进行二次精排
+  rewrite_prompt_id: "default_rewrite"  # 来自 prompt_templates/rewrite.yaml（content + user 字段）
+  generate_summary_prompt_id: "default_summary"  # 来自 prompt_templates/generate_summary.yaml
+  generate_session_title_prompt_id: "default_session_title"  # 来自 prompt_templates/generate_session_title.yaml
   summary:
-    max_input_chars: 16384
-    repeat_penalty: 1.0
-    temperature: 0.3
-    max_completion_tokens: 2048
-    no_match_prefix: |-
+    max_input_chars: 16384             # 送入摘要生成模型的最大输入字符数
+    repeat_penalty: 1.0                # 重复惩罚系数，1.0 表示不惩罚
+    temperature: 0.3                   # 生成温度，越低越确定性，越高越随机
+    max_completion_tokens: 2048        # 摘要生成最大输出 token 数
+    no_match_prefix: |-                # 无匹配时的输出前缀，用于标记检索结果为空的情况
       <think>
       </think>
       NO_MATCH
-    prompt_id: "default_kb"  # from prompt_templates/system_prompt.yaml
-    context_template_id: "default_context"  # from prompt_templates/context_template.yaml
-  extract_entities_prompt_id: "default_extract_entities"          # from prompt_templates/graph_extraction.yaml
-  extract_relationships_prompt_id: "default_extract_relationships"  # from prompt_templates/graph_extraction.yaml
-  generate_questions_prompt_id: "default_generate_questions"        # from prompt_templates/generate_questions.yaml
+    prompt_id: "default_kb"  # 来自 prompt_templates/system_prompt.yaml
+    context_template_id: "default_context"  # 来自 prompt_templates/context_template.yaml
+  extract_entities_prompt_id: "default_extract_entities"          # 来自 prompt_templates/graph_extraction.yaml
+  extract_relationships_prompt_id: "default_extract_relationships"  # 来自 prompt_templates/graph_extraction.yaml
+  generate_questions_prompt_id: "default_generate_questions"        # 来自 prompt_templates/generate_questions.yaml
 
-# Knowledge base configuration
+# 知识库配置
 knowledge_base:
-  chunk_size: 512
-  chunk_overlap: 50
-  split_markers: ["\n\n", "\n", "。"]
-  document_process_timeout: 2h
+  chunk_size: 512                      # 文档切片大小（字符数），影响检索粒度
+  chunk_overlap: 50                    # 相邻切片间的重叠字符数，防止关键信息被切断
+  split_markers: ["\n\n", "\n", "。"]  # 文档分割标记，按优先级依次尝试拆分
+  document_process_timeout: 2h         # 单个文档处理的超时时间
   image_processing:
-    enable_multimodal: true
+    enable_multimodal: true            # 是否启用多模态图片处理，开启后可理解图片内容
 
 extract:
   extract_graph:
     description: |
-      Based on the given text, complete the information extraction task following these steps, ensuring clear logic and complete, accurate information:
+      根据给定的文本，按照以下步骤完成信息抽取任务，确保逻辑清晰、信息完整准确：
 
-      ## Step 1: Entity Extraction and Attribute Enrichment
-      1. **Extract core entities**: Read through the text and extract all core entities relevant to the task in logical order (such as narrative order or entity association closeness).
-      2. **Enrich entity attributes**: For each extracted entity, comprehensively supplement its detailed attributes explicitly mentioned in the text, ensuring no key attributes are omitted.
+      ## 步骤 1：实体提取与属性丰富
+      1. **提取核心实体**：通读文本，按逻辑顺序（如叙述顺序或实体关联紧密程度）提取与任务相关的所有核心实体。
+      2. **丰富实体属性**：为每个提取出的实体，全面补充文本中明确提及的详细属性，确保不遗漏关键属性。
 
-      ## Step 2: Relationship Extraction and Verification
-      1. **Identify relationship types**: Select corresponding types only from the specified relationship list. Allowed relationship types are: %s.
-      2. **Extract valid relationships**: Based on the extracted entities and attributes, identify relationships that genuinely exist in the text, ensuring relationships are factually accurate with no false associations.
-      3. **Clarify relationship subjects**: For each extracted relationship, clearly annotate the two associated entities to avoid subject confusion.
-      4. **Supplement related attributes**: If the text contains supplementary information directly related to a relationship, include it as a related attribute of the relationship.
-    tags:
-      - "Author"
-      - "Alias"
-    examples:
+      ## 步骤 2：关系提取与验证
+      1. **识别关系类型**：仅从指定的关系列表中选取对应类型。允许的关系类型为：%s。
+      2. **提取有效关系**：基于已提取的实体和属性，识别文本中真实存在的关系，确保关系事实准确无误，不产生虚假关联。
+      3. **明确关系主体**：为每条提取出的关系清晰标注关联的两个实体，避免主体混淆。
+      4. **补充相关属性**：若文本中包含与关系直接相关的补充信息，将其作为关系的相关属性一并收录。
+    tags:                                # 知识图谱允许的实体关系类型列表
+      - "作者"
+      - "别名"
+    examples:                            # Few-shot 示例，引导模型按期望格式输出
       - text: |
-          "Romeo and Juliet" is a tragedy written by William Shakespeare early in his career about the romance between two Italian youths from feuding families.
-          It was among Shakespeare's most popular plays during his lifetime. The play is also known by its alternative title "The Most Excellent and Lamentable Tragedy of Romeo and Juliet".
-          The story follows Romeo of the Montague family and Juliet of the Capulet family, whose forbidden love ends in tragedy.
+          《罗密欧与朱丽叶》是威廉·莎士比亚早期创作的一部悲剧，讲述了两个来自世仇家族的意大利青年之间的爱情故事。
+          它是莎士比亚生前最受欢迎的戏剧之一。该剧还有一个别名——《罗密欧与朱丽叶的悲惨故事》。
+          故事讲述了蒙太古家族的罗密欧与凯普莱特家族的朱丽叶，他们被禁止的爱情最终以悲剧收场。
         node:
-          - name: "Romeo and Juliet"
+          - name: "罗密欧与朱丽叶"
             attributes:
-              - "A tragedy by William Shakespeare"
-              - "Also known as 'The Most Excellent and Lamentable Tragedy of Romeo and Juliet'"
-              - "Among Shakespeare's most popular plays"
-          - name: "The Most Excellent and Lamentable Tragedy of Romeo and Juliet"
+              - "威廉·莎士比亚创作的悲剧"
+              - "又名《罗密欧与朱丽叶的悲惨故事》"
+              - "莎士比亚最受欢迎的戏剧之一"
+          - name: "罗密欧与朱丽叶的悲惨故事"
             attributes:
-              - "Alternative title for Romeo and Juliet"
-          - name: "William Shakespeare"
+              - "《罗密欧与朱丽叶》的别名"
+          - name: "威廉·莎士比亚"
             attributes:
-              - "Playwright"
-              - "Author of Romeo and Juliet, written early in his career"
+              - "剧作家"
+              - "《罗密欧与朱丽叶》的作者，早期创作"
         relation:
-          - node1: "Romeo and Juliet"
-            node2: "William Shakespeare"
-            type: "Author"
-          - node1: "Romeo and Juliet"
-            node2: "The Most Excellent and Lamentable Tragedy of Romeo and Juliet"
-            type: "Alias"
+          - node1: "罗密欧与朱丽叶"
+            node2: "威廉·莎士比亚"
+            type: "作者"
+          - node1: "罗密欧与朱丽叶"
+            node2: "罗密欧与朱丽叶的悲惨故事"
+            type: "别名"
   extract_entity:
     description: |
-      Based on the user's question, process the key information extraction task following these steps:
-      1. Analyze logical connections: First, fully analyze the text content, identify its core logical relationships, and briefly annotate the core logic type;
-      2. Extract key entities: Based on the identified logical relationships, precisely extract key information from the text and classify it into clear entities, ensuring no core information is omitted and no redundant content is added;
-      3. Prioritize entities: Sort by the closeness of each entity's association with the core topic of the text, presenting the most important entities for understanding the main idea first;
-    examples:
-      - text: "'Romeo and Juliet' is a tragedy written by William Shakespeare early in his career, and is one of the most frequently performed plays in world literature."
+      根据用户的问题，按照以下步骤处理关键信息抽取任务：
+      1. 分析逻辑关联：首先充分分析文本内容，识别其核心逻辑关系，并简要标注核心逻辑类型；
+      2. 提取关键实体：基于已识别的逻辑关系，从文本中精确提取关键信息并归类为清晰的实体，确保不遗漏核心信息、不添加冗余内容；
+      3. 实体优先级排序：按各实体与文本核心主题的关联紧密程度排序，优先呈现对理解主旨最重要的实体；
+    examples:                            # Few-shot 示例，演示实体提取的标准输出
+      - text: "《罗密欧与朱丽叶》是威廉·莎士比亚早期创作的一部悲剧，是世界文学中上演次数最多的戏剧之一。"
         node:
-          - name: "Romeo and Juliet"
-          - name: "William Shakespeare"
-          - name: "world literature"
+          - name: "罗密欧与朱丽叶"
+          - name: "威廉·莎士比亚"
+          - name: "世界文学"
   fabri_text:
-    with_tag: |
-      Please randomly generate a text related to %s, with a word count between [50-200], and try to include some professional terms or typical elements related to these tags to make the text more targeted and relevant.
-    with_no_tag: |
-      Please randomly generate a text with freely chosen content, with a word count between [50-200].
+    with_tag: |                          # 带标签的文本生成提示词，用于构造测试/训练数据
+      请随机生成一段与 %s 相关的文本，字数在 [50-200] 之间，尽量包含一些与这些标签相关的专业术语或典型元素，使文本更具针对性和相关性。
+    with_no_tag: |                       # 无标签的文本生成提示词，自由主题
+      请随机生成一段内容自由的文本，字数在 [50-200] 之间。
 
-
-# Tenant configuration
+# 租户配置
 tenant:
-  # Enable cross-tenant access (can be enabled for intranet environments)
-  enable_cross_tenant_access: false
+  # 启用跨租户访问（内网环境可开启）
+  enable_cross_tenant_access: false     # 是否允许跨租户访问数据，生产环境建议关闭

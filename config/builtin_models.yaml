@@ -22,41 +22,43 @@
 # 每次应用启动时重新加载——编辑文件并重启即可使更改生效。
 # 从文件中移除的条目不会自动从数据库中删除；如需删除请手动清理。
 
-builtin_models: []
+#builtin_models: []
 
 # ----- 示例：基于环境变量的条目 — 取消注释并修改 --------------------------------
 #
-# builtin_models:
-#   - id: builtin-llm-default
-#     type: KnowledgeQA          # KnowledgeQA | Embedding | Rerank | VLLM | ASR
-#     source: remote             # remote（默认）| local | ...
-#     is_default: true
-#     name: ${LLM_MODEL_NAME}
-#     parameters:
-#       base_url: ${LLM_BASE_URL}
-#       api_key: ${LLM_API_KEY}
-#       provider: ${LLM_PROVIDER}  # openai | generic | aliyun | moonshot | ...
+builtin_models:
+  - id: builtin-llm-default
+    type: KnowledgeQA          # KnowledgeQA | Embedding | Rerank | VLLM | ASR
+    source: remote             # remote（默认）| local | ...
+    is_default: true
+    name: ${LLM_MODEL_NAME}
+    parameters:
+      base_url: ${LLM_BASE_URL}
+      api_key: ${LLM_API_KEY}
+      provider: ${LLM_PROVIDER}  # openai | generic | aliyun | moonshot | ...
 #
-#   - id: builtin-embedding-default
-#     type: Embedding
-#     source: remote
-#     is_default: true
-#     name: ${EMBEDDING_MODEL_NAME}
-#     parameters:
-#       base_url: ${EMBEDDING_BASE_URL}
-#       api_key: ${EMBEDDING_API_KEY}
-#       provider: ${EMBEDDING_PROVIDER}
-#       embedding_parameters:
-#         dimension: 1536
-#         truncate_prompt_tokens: 0
+  - id: builtin-embedding-default
+    type: Embedding
+    source: remote
+    is_default: true
+    name: ${EMBEDDING_MODEL_NAME}
+    parameters:
+      base_url: ${EMBEDDING_BASE_URL}
+      api_key: ${EMBEDDING_API_KEY}
+      provider: ${EMBEDDING_PROVIDER}
+      embedding_parameters:
+        dimension: 1024
+        truncate_prompt_tokens: 0
 #
-#   - id: builtin-rerank-default
-#     type: Rerank
-#     source: remote
-#     parameters:
-#       base_url: ${RERANK_BASE_URL}
-#       api_key: ${RERANK_API_KEY}
-#       provider: ${RERANK_PROVIDER}
+  - id: builtin-rerank-default
+    type: Rerank
+    source: remote
+    is_default: true
+    name: ${RERANK_MODEL_NAME}
+    parameters:
+      base_url: ${RERANK_BASE_URL}
+      api_key: ${RERANK_API_KEY}
+      provider: ${RERANK_PROVIDER}
 #
 # ----- 示例：字面值配置（不使用环境变量间接引用）-------------------------------
 #

@@ -1,36 +1,35 @@
-# Agent Type Presets for Smart-Reasoning Mode
+# 智能推理模式的智能体类型预设
 #
-# When a user creates/edits a custom agent and picks "smart-reasoning" mode,
-# they can additionally pick an "agent type" from the list below. Each type
-# bundles a recommended system prompt template, tool allowlist, and KB
-# compatibility rules so the user doesn't have to configure everything.
+# 当用户创建/编辑自定义智能体并选择"smart-reasoning"模式时，
+# 他们可以额外从以下列表中选择一个"智能体类型"。每种类型
+# 捆绑了推荐的系统提示词模板、工具白名单和知识库
+# 兼容性规则，这样用户无需从头配置所有内容。
 #
-# A user can always override any auto-filled value — the preset only seeds
-# the form.
+# 用户始终可以覆盖任何自动填充的值——预设仅作为
+# 表单的初始值。
 #
-# `kb_filter` decides which KBs the agent editor allows the user to select
-# under this type. The frontend reads this config via GET /agents/type-presets
-# and applies it as a client-side filter.
+# `kb_filter` 决定智能体编辑器允许用户在此类型下选择
+# 哪些知识库。前端通过 GET /agents/type-presets 读取此配置，
+# 并在客户端应用过滤。
 #
-# Supported kb_filter predicates (evaluated against a KB's `capabilities`):
-#   any_of:   KB must expose at least ONE of the listed capability names.
-#   all_of:   KB must expose ALL of the listed capability names.
-#   none_of:  KB must expose NONE of the listed capability names.
-# Capability names: vector, keyword, wiki, graph, faq.
-# An empty kb_filter (or kb_filter absent) means "any KB is allowed".
+# 支持的 kb_filter 谓词（针对知识库的 `capabilities` 进行评估）：
+#   any_of:   知识库必须至少暴露列出的能力之一。
+#   all_of:   知识库必须暴露列出的所有能力。
+#   none_of:  知识库必须不暴露任何列出的能力。
+# 能力名称：vector、keyword、wiki、graph、faq。
+# 空的 kb_filter（或不设置 kb_filter）表示"允许任何知识库"。
 #
-# NOTE: In the default "tool-driven" mode, the frontend DERIVES the any_of
-# predicate from `config.allowed_tools` via `deriveKbFilterFromTools` (see
-# `frontend/src/utils/tool-capabilities.ts`). You only need to write an
-# explicit `kb_filter` here when the preset requires a business rule that
-# can't be inferred from the tools alone (e.g. `none_of: [faq]` on
-# data-analysis). Keeping the map lean avoids the "two sources of truth"
-# drift that used to plague this file.
+# 注意：在默认的"工具驱动"模式下，前端通过 `deriveKbFilterFromTools`
+# （参见 `frontend/src/utils/tool-capabilities.ts`）从 `config.allowed_tools`
+# 推导出 any_of 谓词。只有当预设需要无法仅从工具推断的业务规则时
+#（例如 data-analysis 上的 `none_of: [faq]`），才需要在此处编写
+# 显式的 `kb_filter`。保持映射表精简，可避免此文件曾经存在的
+# "双重真实来源"漂移问题。
 
 agent_type_presets:
   # --------------------------------------------------------------------------
-  # RAG Q&A — classic evidence-based retrieval over chunk indexes.
-  # Best for document / FAQ KBs without wiki.
+  # RAG 问答 — 基于分块索引的经典证据驱动检索。
+  # 最适合无 Wiki 的文档 / FAQ 知识库。
   # --------------------------------------------------------------------------
   - id: "rag-qa"
     i18n:
@@ -47,10 +46,10 @@ agent_type_presets:
       system_prompt_id: "progressive_rag_agent"
       temperature: 0.7
       max_iterations: 30
-      # `thinking` and `todo_write` are intentionally NOT included by default.
-      # They are useful for multi-step planning / self-reflection, but most
-      # users don't need them for single-turn Q&A and they noticeably bloat
-      # token usage. Enable them manually in the tool list when needed.
+      # `thinking` 和 `todo_write` 故意默认不包含。
+      # 它们对多步规划 / 自我反思很有用，但大多数
+      # 用户单轮问答不需要它们，且它们会明显增加
+      # token 消耗。需要时在工具列表中手动启用。
       allowed_tools:
         - "knowledge_search"
         - "grep_chunks"
@@ -60,11 +59,11 @@ agent_type_presets:
       retain_retrieval_history: false
       faq_priority_enabled: true
       kb_selection_mode: "all"
-    # kb_filter derived from allowed_tools: any_of = [vector, keyword]
+    # kb_filter 从 allowed_tools 推导：any_of = [vector, keyword]
 
   # --------------------------------------------------------------------------
-  # Wiki Q&A — graph-navigated wiki answering.
-  # Only meaningful on KBs where Wiki is enabled.
+  # Wiki 问答 — 图谱导航的 Wiki 回答。
+  # 仅在启用了 Wiki 的知识库上有意义。
   # --------------------------------------------------------------------------
   - id: "wiki-qa"
     i18n:
@@ -81,9 +80,9 @@ agent_type_presets:
       system_prompt_id: "wiki_researcher"
       temperature: 0.7
       max_iterations: 30
-      # `thinking` / `todo_write` can be enabled manually if the user wants
-      # explicit reflection or planning across long wiki navigation chains;
-      # not on by default.
+      # `thinking` / `todo_write` 可在用户需要跨长链
+      # wiki 导航时进行显式反思或规划时手动启用；
+      # 默认不开启。
       allowed_tools:
         - "wiki_search"
         - "wiki_read_page"
@@ -92,11 +91,11 @@ agent_type_presets:
         - "final_answer"
       retain_retrieval_history: false
       kb_selection_mode: "all"
-    # kb_filter derived from allowed_tools: any_of = [wiki]
+    # kb_filter 从 allowed_tools 推导：any_of = [wiki]
 
   # --------------------------------------------------------------------------
-  # Hybrid RAG + Wiki — single agent that orchestrates both indexes.
-  # Requires KBs that expose BOTH wiki AND (vector or keyword).
+  # 混合 RAG + Wiki — 编排两种索引的单一智能体。
+  # 需要同时暴露 wiki 和 (vector 或 keyword) 的知识库。
   # --------------------------------------------------------------------------
   - id: "hybrid-rag-wiki"
     i18n:
@@ -113,9 +112,9 @@ agent_type_presets:
       system_prompt_id: "hybrid_rag_wiki_agent"
       temperature: 0.7
       max_iterations: 40
-      # `thinking` and `todo_write` are opt-in. Turn them on manually when the
-      # user wants explicit self-reflection or a visible step-by-step plan for
-      # multi-hop hybrid searches.
+      # `thinking` 和 `todo_write` 是可选加入的。当用户希望
+      # 在多跳混合搜索中进行显式自我反思或可见的分步计划时，
+      # 手动开启。
       allowed_tools:
         - "wiki_search"
         - "wiki_read_page"
@@ -128,23 +127,22 @@ agent_type_presets:
       retain_retrieval_history: false
       faq_priority_enabled: true
       kb_selection_mode: "all"
-    # Hybrid is meant to be the most flexible preset: the agent adapts at
-    # runtime based on what each KB exposes.
-    #  - KB has wiki + chunks  → full "wiki-first, RAG-verify" workflow
-    #  - KB has only chunks    → fallback to pure RAG (see prompt's "Fallback rules")
-    #  - KB has only wiki      → fallback to wiki-only answering
-    #  - FAQ KB                → allowed; knowledge_search still works on FAQ chunks
-    # kb_filter derived from allowed_tools: any_of = [vector, keyword, wiki].
-    # We only require that the KB expose AT LEAST ONE retrievable surface so
-    # the agent has SOMETHING to call. KBs with zero indexing (e.g. graph-only
-    # or completely unindexed) are still excluded since no tool will return
-    # anything useful.
+    # 混合模式旨在成为最灵活的预设：智能体在运行时根据
+    # 每个知识库暴露的能力自适应。
+    #  - 知识库有 wiki + chunks  → 完整的"wiki 优先，RAG 验证"工作流
+    #  - 知识库仅有 chunks       → 退回到纯 RAG（参见提示词中的"兜底规则"）
+    #  - 知识库仅有 wiki         → 退回到仅 wiki 回答
+    #  - FAQ 知识库              → 允许；knowledge_search 在 FAQ 块上仍可工作
+    # kb_filter 从 allowed_tools 推导：any_of = [vector, keyword, wiki]。
+    # 我们只要求知识库至少暴露一种可检索的索引面，这样智能体
+    # 至少有东西可调用。零索引的知识库（如仅图谱或无任何索引）
+    # 仍然被排除，因为没有工具能返回任何有用的结果。
 
   # --------------------------------------------------------------------------
-  # Data Analysis — SQL / statistics over tabular files (CSV / Excel) in the KB.
-  # Retrieval capabilities (vector/wiki/…) are largely irrelevant here — the
-  # agent drives `data_schema` + `data_analysis` tools against uploaded files,
-  # so we gate on supported_file_types rather than KB capabilities.
+  # 数据分析 — 对知识库中的表格文件（CSV / Excel）进行 SQL / 统计分析。
+  # 检索能力（vector/wiki/…）在此基本无关——智能体
+  # 驱动 `data_schema` + `data_analysis` 工具对上传的文件进行操作，
+  # 因此我们通过 supported_file_types 而非知识库能力来筛选。
   # --------------------------------------------------------------------------
   - id: "data-analysis"
     i18n:
@@ -161,32 +159,32 @@ agent_type_presets:
       system_prompt_id: "data_analyst"
       temperature: 0.3
       max_iterations: 30
-      # `thinking` / `todo_write` are opt-in for data-analysis too. Enable
-      # manually if the user wants explicit reflection or to break a long
-      # analysis into tracked sub-tasks.
+      # `thinking` / `todo_write` 对数据分析同样是可选加入的。
+      # 当用户需要显式反思或将长的分析任务拆解为
+      # 跟踪式子任务时，手动启用。
       allowed_tools:
         - "data_schema"
         - "data_analysis"
         - "final_answer"
-      # retain_retrieval_history is irrelevant here — data-analysis has no
-      # retrieval tools in allowed_tools. Leave defaults.
+      # retain_retrieval_history 在此无关——数据分析在
+      # allowed_tools 中没有检索工具。保留默认值。
       web_search_enabled: false
       supported_file_types:
         - "csv"
         - "xlsx"
       kb_selection_mode: "all"
-    # data_schema / data_analysis tools read ChunkTypeTableSummary /
-    # ChunkTypeTableColumn chunks, which are produced by the normal RAG
-    # ingestion pipeline (vector / keyword indexing on). The any_of predicate
-    # is derived automatically from allowed_tools; we only need to add the
-    # FAQ exclusion here since it's a business rule the tool map can't express
-    # (FAQ KBs technically have vector/keyword chunks but they're Q&A pairs,
-    # not tabular data, so data_schema would produce garbage on them).
+    # data_schema / data_analysis 工具读取 ChunkTypeTableSummary /
+    # ChunkTypeTableColumn 块，这些块由正常的 RAG
+    # 入库流水线（vector / keyword 索引）产生。any_of 谓词
+    # 从 allowed_tools 自动推导；这里只需额外添加
+    # FAQ 排除，因为这是一个工具映射表无法表达的业务规则
+    #（FAQ 知识库技术上有 vector/keyword 块，但它们是问答对，
+    # 而非表格数据，因此 data_schema 在它们上面会产出无用结果）。
     kb_filter:
       none_of: ["faq"]
 
   # --------------------------------------------------------------------------
-  # Custom — no preset; user configures everything by hand.
+  # 自定义 — 无预设；用户完全手动配置。
   # --------------------------------------------------------------------------
   - id: "custom"
     i18n:
@@ -199,5 +197,5 @@ agent_type_presets:
       zh-TW:
         label: "自訂"
         description: "完全自訂：自行選擇工具、提示詞和知識庫。"
-    # No `config:` block → preset applies no auto-fill.
-    # No `kb_filter:`    → all KBs are selectable.
+    # 无 `config:` 块 → 预设不应用任何自动填充。
+    # 无 `kb_filter:`    → 所有知识库均可选择。

@@ -523,7 +523,6 @@ volumes:
   neo4j-data-dev:
   jaeger_data_dev:
   qdrant_data_dev:
-  opensearch_data_dev:
   milvus_data_dev:
   docreader-tmp-dev:
   langfuse_clickhouse_data_dev:
