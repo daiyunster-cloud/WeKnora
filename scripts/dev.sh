@@ -280,7 +280,8 @@ start_app() {
     log_info "环境变量已设置，启动应用..."
     log_info "数据库地址: $DB_HOST:${DB_PORT:-5432}"
     
-    export CGO_CFLAGS="-Wno-deprecated-declarations -Wno-gnu-folding-constant"
+    export CGO_ENABLED=1
+    export CGO_CFLAGS="-Wno-deprecated-declarations -Wno-gnu-folding-constant -I$(cygpath -m "$(pwd)")/sqlite-amalgamation/sqlite-amalgamation-3530100"
     if [[ "$(uname)" == "Darwin" ]]; then
       export CGO_LDFLAGS="-Wl,-no_warn_duplicate_libraries"
     fi
@@ -289,6 +290,8 @@ start_app() {
     if command -v air &> /dev/null; then
         log_success "检测到 Air，使用热重载模式启动..."
         log_info "修改 Go 代码后将自动重新编译和重启"
+        # Windows 上 Air 默认用 cmd.exe 执行编译，强制指定 bash
+        export SHELL="$(command -v bash)"
         air
     else
         log_info "未检测到 Air，使用普通模式启动"
